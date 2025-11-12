@@ -27,8 +27,14 @@
             max-width: 450px;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             color: white;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 15px #38bdf8, 0 0 30px rgba(56, 189, 248, 0.4);
+            transition: 0.3s;
+        }
+
+        .container:hover {
+            box-shadow: 0 0 25px #38bdf8, 0 0 45px rgba(56, 189, 248, 0.6);
         }
 
         .container h2 {
@@ -36,6 +42,17 @@
             margin-bottom: 15px;
             font-size: 24px;
             color: #38bdf8;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            width: 85px;
+            filter: drop-shadow(0 0 10px #38bdf8);
         }
 
         .input-group {
@@ -59,11 +76,6 @@
             font-size: 14px;
         }
 
-        .input-group textarea {
-            resize: none;
-            height: 80px;
-        }
-
         .btn {
             width: 100%;
             padding: 12px;
@@ -81,19 +93,47 @@
             background: #0ea5e9;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 18px;
-            }
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .skill {
+            padding: 8px 15px;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 8px #38bdf8, 0 0 16px rgba(56, 189, 248, 0.4);
+        }
+
+        .skill:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            box-shadow: 0 0 15px #38bdf8, 0 0 30px rgba(56, 189, 248, 0.6);
+        }
+
+        .skill.active {
+            background: #38bdf8;
+            color: #0f172a;
+            box-shadow: 0 0 20px #38bdf8, 0 0 40px rgba(56, 189, 248, 0.8);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>
-            🚀 RELOAD'25 🚀
-        </h2>
+
+        <!-- ✅ Logo Added Here -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+
+        <h2>🚀 RELOAD'25 🚀</h2>
 
         <div class="input-group">
             <label>Full Name</label>
@@ -101,7 +141,7 @@
         </div>
 
         <div class="input-group">
-            <label>college Email</label>
+            <label>College Email</label>
             <input type="email" placeholder="abc@akgec.ac.in">
         </div>
 
@@ -111,8 +151,8 @@
         </div>
 
         <div class="input-group">
-            <label>year</label>
-             <select>
+            <label>Year</label>
+            <select>
                 <option>1st year</option>
                 <option>2nd year</option>
                 <option>3rd year</option>
@@ -129,65 +169,32 @@
                 <option>CSE</option>
                 <option>AI&ML</option>
                 <option>CS(Hindi)</option>
-               
             </select>
         </div>
 
         <div class="input-group">
-    <label>Technical Domains</label>
+            <label>Technical Domains</label>
 
-    <div class="skill-container">
-        <div class="skill">fontend</div>
-        <div class="skill">backend</div>
-        <div class="skill">Machine Learning</div>
-        <div class="skill">App development</div>
-        <div class="skill">Designer</div>
-      
-       
-        
-    </div>
-</div>
-
-<style>
-    .skill-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 8px;
-    }
-
-    .skill {
-        padding: 8px 15px;
-        border: 2px solid #007bff;
-        color: #007bff;
-        border-radius: 20px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .skill:hover {
-        background: #007bff;
-        color: white;
-    }
-
-    .skill.active {
-        background: #007bff;
-        color: white;
-    }
-</style>
-
-<script>
-    const skills = document.querySelectorAll(".skill");
-    skills.forEach(skill => {
-        skill.addEventListener("click", () => {
-            skill.classList.toggle("active");
-        });
-    });
-</script>
+            <div class="skill-container">
+                <div class="skill">Frontend</div>
+                <div class="skill">Backend</div>
+                <div class="skill">Machine Learning</div>
+                <div class="skill">App Development</div>
+                <div class="skill">Designer</div>
+            </div>
+        </div>
 
         <button class="btn">Register Now</button>
     </div>
+
+    <script>
+        const skills = document.querySelectorAll(".skill");
+        skills.forEach(skill => {
+            skill.addEventListener("click", () => {
+                skill.classList.toggle("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
